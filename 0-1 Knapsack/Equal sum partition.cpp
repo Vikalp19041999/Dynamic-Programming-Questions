@@ -16,3 +16,18 @@ bool subset(vector<int> arr, int sum) {
     }
     return dp[n+1][sum+1];
 }
+
+bool equalSum(vector<int> arr) {
+    if(arr.size() == 1) {
+        return false;
+    }
+    int n = arr.size();
+    int sum = 0;
+    for(int i=0; i<=n; i++) {
+        sum = sum + arr[i];
+    }
+    if(sum % 2 != 0) {
+        return false;
+    }
+    return subset(arr, sum/2);
+}
